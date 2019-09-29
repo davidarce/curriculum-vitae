@@ -1,0 +1,336 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?r1opj3');
+    src:  url('../fonts/icomoon.eot?r1opj3#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?r1opj3') format('truetype'),
+      url('../fonts/icomoon.woff?r1opj3') format('woff'),
+      url('../fonts/icomoon.svg?r1opj3#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-linkedin:before {
+    content: "\e900";
+  }
+  .icon-github:before {
+    content: "\e901";
+  }
+  .icon-twitter:before {
+    content: "\e902";
+  }
+  .icon-mail:before {
+    content: "\e903";
+  }
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.resume {
+    background-color: white;
+    display: grid;
+    grid-template-columns: minmax(auto, 1000px);
+    justify-content: center;
+    padding: 32px 15px;
+}
+
+.resume-container {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-areas: "lateral about-me"
+                         "lateral about-me" 
+                         "lateral experience" 
+                         "lateral education" 
+                         "lateral courses"
+                         "lateral contact";
+    grid-gap: 15px;
+}
+
+.section-container {
+    padding: 20px 0;
+    border-top: 1px solid #9b9b9b;
+}
+
+.section-information {
+    padding: 20px 10px 20px 10px;
+}
+
+.section-title {
+    width: 100%;
+    margin: 0;
+    font-size: 1em;
+    line-height: 20px;
+    padding: 5px 0px 15px 0;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.resume-container__lateral {
+    background-color: #3978c0;
+    grid-area: lateral;
+    min-height: 950px;
+    height: 100%;
+    color: white;
+}
+
+.resume-container__lateral .section-container {
+    padding-left: 15px;
+    border-top: 0;
+    width: 100%;
+}
+
+.resume-container__lateral .section-title {
+    border-bottom: 1px solid #5d90cb;
+}
+
+.contact-information__container {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-information__description {
+    font-size: 0.9em;
+}
+
+.contact-information__item span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact-information__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.section-language-information {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.list-languages__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-language__name {
+    text-align: left;
+    margin-bottom: 0.2em;
+    font-weight: bold;
+}
+
+.resume-container__about-me {
+    grid-area: about-me;
+    margin-bottom: 5px;
+}
+
+.header-title {    
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+}
+
+.header-image__wrapper {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    padding-left: 10px;
+}
+
+.header-image {
+    width: 100%;
+}
+
+.header-image img {
+    width: 100px;
+    height: auto;
+}
+
+.header-image--rounded {
+    overflow: hidden;
+    border-radius: 100%;
+    height: 100px;
+}
+
+.header-image--rounded img {
+    margin-top: -9px;
+    margin-left: -4px;
+}
+
+.resume-container__about-me .section-container {
+    border-top: 0;
+}
+
+.header-title__fullname {
+    font-size: 1.8em;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.header-title__description {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    max-width: 450px;
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.resume-container__experience {
+    grid-area: experience;
+}
+
+.resume-container__education {
+    grid-area: education;
+}
+
+.resume-container__courses {
+    grid-area: courses;
+}
+
+.list-item {
+    display: flex;
+}
+
+.list-item:not(:last-child):not(:nth-child(2)) {
+    margin-bottom: 20px;
+}
+
+.list-item:not(:nth-child(2)) {
+    padding-top: 20px;
+}
+
+.list-item__info {
+    padding-right: 30px;
+    position: relative;
+    width: calc((100% / 14) * 5);
+}
+
+.list-item__info::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3978c0;
+    border-radius: 50%;
+}
+
+.list-item:not(:last-child) .list-item__info::after {
+    height: calc(100% + 100px);
+}
+
+.list-item__info::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    right: calc(15px / 2);
+    background-color: #3978c0;
+}
+
+.list-simple__container--outside {
+    list-style-position: outside;
+}
+
+.list-simple__container-outside .simple-list__item {
+    margin-left: 1em;
+}
+
+
+.list-simple__container--inside {
+    list-style-position: inside;
+}
+
+.simple-list__item {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.info__title {
+    font-size: 1.1em;
+}
+
+.info__title b {
+    color: black;
+    font-weight: bold;
+}
+
+.info__extra {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.info__city {
+    font-size: 0.8rem;
+}
+
+.info__date {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.list-item__description {
+    text-align: left;
+    width: calc((100% / 14) * 9);
+    padding-left: 20px;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.social_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding-top: 0.8em;
+}
+
+.social-link__item {
+    font-size: 2.7em;
+    color: white;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}
