@@ -1,16 +1,13 @@
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon.eot?r1opj3');
-    src:  url('../fonts/icomoon.eot?r1opj3#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?r1opj3') format('truetype'),
-      url('../fonts/icomoon.woff?r1opj3') format('woff'),
-      url('../fonts/icomoon.svg?r1opj3#icomoon') format('svg');
+    src: url('../fonts/icomoon.eot?r1opj3');
+    src: url('../fonts/icomoon.eot?r1opj3#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?r1opj3') format('truetype'), url('../fonts/icomoon.woff?r1opj3') format('woff'), url('../fonts/icomoon.svg?r1opj3#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
-  }
-  
-  [class^="icon-"], [class*=" icon-"] {
+}
+
+[class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: none;
@@ -19,24 +16,26 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-linkedin:before {
+}
+
+.icon-linkedin:before {
     content: "\e900";
-  }
-  .icon-github:before {
+}
+
+.icon-github:before {
     content: "\e901";
-  }
-  .icon-twitter:before {
+}
+
+.icon-twitter:before {
     content: "\e902";
-  }
-  .icon-mail:before {
+}
+
+.icon-mail:before {
     content: "\e903";
-  }
+}
 
 * {
     padding: 0;
@@ -61,9 +60,9 @@ body {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
     grid-template-areas: "lateral about-me"
-                         "lateral about-me" 
-                         "lateral experience" 
-                         "lateral education" 
+                         "lateral about-me"
+                         "lateral experience"
+                         "lateral education"
                          "lateral courses"
                          "lateral contact";
     grid-gap: 15px;
@@ -147,7 +146,7 @@ body {
     margin-bottom: 5px;
 }
 
-.header-title {    
+.header-title {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto;
@@ -192,7 +191,7 @@ body {
 .header-title__description {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
-    max-width: 450px;
+    max-width: 600px;
     margin-top: 5px;
     font-weight: 300;
     font-size: 0.9em;
@@ -262,7 +261,6 @@ body {
     margin-left: 1em;
 }
 
-
 .list-simple__container--inside {
     list-style-position: inside;
 }
@@ -299,7 +297,7 @@ body {
 .list-item__description {
     text-align: left;
     width: calc((100% / 14) * 9);
-    padding-left: 20px;
+    padding-left: 22px;
     font-weight: 300;
     font-size: 0.8rem;
 }
@@ -318,19 +316,150 @@ body {
     text-decoration: none;
 }
 
+@media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 1024px) {
-
-}
-
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 767px) {
+    .resume {
+        padding: 0;
+    }
+    .resume-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "about-me"
+                             "about-me" 
+                             "experience"
+                             "education" 
+                             "courses"
+                             "lateral";
+                             
+    }
+    .resume-container__about-me {
+        padding: 15px 10px 0 10px;
+        margin-bottom: 0;
+    }
+    .header-title__fullname {
+        font-size: 1.6em;
+    }
+    .header-title__description {
+        width: 100%;
+        margin-top: 0.2em;
+        font-size: 0.8em;
+    }
+    .header-image img {
+        width: 90px;
+    }
+    .header-image--rounded {
+        height: 90px;
+    }
+    .list-item:not(:last-child):not(:nth-child(2)) {
+        margin-bottom: 0.6em;
+    }
+    .list-item:not(:nth-child(2)) {
+        padding-top: 0.6em;
+    }
+    .list-item__info::before {
+        width: 11px;
+        height: 11px;
+    }
+    .list-item__info::after {
+        right: calc(10px / 2);
+    }
+    .info__title {
+        font-size: 1em;
+    }
+    .info__extra {
+        font-size: 0.8rem;
+    }
+    .info__city {
+        font-size: 0.7rem;
+    }
+    .info__date {
+        font-size: 0.7rem;
+    }
+    .list-item__description {
+        width: calc((100% / 12) * 9);
+        font-size: 0.7rem;
+        padding-left: 25px;
+    }
+    .resume-container__lateral {
+        min-height: 820px;
+        width: 100%;
+    }
+    .contact-information__container {
+        padding-top: 5px;
+    }
+    .resume-container__lateral .section-title {
+        font-size: 0.8em;
+    }
+    .contact-information__description {
+        font-size: 0.7em;
+    }
+    .section-information {
+        padding: 20px 10px 10px 10px;
+    }
+    .section-container {
+        padding: 10px 0;
+    }
+    .resume-container__experience {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .resume-container__education {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .resume-container__courses {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .social_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .social-link__item {
+        font-size: 2.2em;
+    }
 }
 
 @media screen and (max-width: 480px) {
-
+    .header-title__fullname {
+        font-size: 1.5em;
+    }
+    .header-title__description {
+        width: 100%;
+        margin-top: 0.2em;
+        font-size: 0.7em;
+    }
+    .header-image img {
+        width: 80px;
+    }
+    .header-image--rounded {
+        height: 80px;
+    }
 }
 
 @media screen and (max-width: 320px) {
-
+    .header-title__fullname {
+        font-size: 1.2em;
+    }
+    .header-image img {
+        width: 68px;
+    }
+    .header-image--rounded {
+        height: 68px;
+    }
+    .header-image--rounded img {
+        margin-top: -7px;
+    }
+    .section-title {
+        font-size: 0.9em;
+        line-height: 15px;
+    }
+    .info__title {
+        font-size: 0.9em;
+    }
+    .info__extra {
+        font-size: 0.7rem;
+    }
+    .info__date {
+        font-size: 0.5rem;
+    }
 }
