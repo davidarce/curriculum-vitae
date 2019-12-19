@@ -481,6 +481,21 @@ body {
         font-size: 0.8em;
         width: 100%;
     }
+    .resume-container__skills ul {
+        columns: 1;
+    }
+    .skill-container__skill-item {
+        font-size: 0.6em;
+        margin: 0 0.6em 0.3em 0;
+        width: 100px;
+    }
+    .progress-bar {
+        height: 12px;
+        width: 150px;
+    }
+    .progress-bar__container {
+        height: 12px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -500,21 +515,6 @@ body {
     }
     .section-simple {
         font-size: 0.7em;
-    }
-    .resume-container__skills ul {
-        columns: 1;
-    }
-    .skill-container__skill-item {
-        font-size: 0.6em;
-        margin: 0 0.6em 0.3em 0;
-        width: 100px;
-    }
-    .progress-bar {
-        height: 12px;
-        width: 150px;
-    }
-    .progress-bar__container {
-        height: 12px;
     }
 }
 
