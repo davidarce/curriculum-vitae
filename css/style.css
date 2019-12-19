@@ -502,7 +502,7 @@ body {
         font-size: 0.7em;
     }
     .resume-container__skills ul {
-        columns: 2;
+        columns: 1;
     }
     .skill-container__skill-item {
         font-size: 0.6em;
@@ -511,7 +511,7 @@ body {
     }
     .progress-bar {
         height: 12px;
-        width: 110px;
+        width: 150px;
     }
     .progress-bar__container {
         height: 12px;
@@ -543,15 +543,5 @@ body {
     }
     .info__date {
         font-size: 0.5rem;
-    }
-    .resume-container__skills ul {
-        columns: 1;
-    }
-    .progress-bar {
-        height: 12px;
-        width: 150px;
-    }
-    .progress-bar__container {
-        height: 12px;
     }
 }
