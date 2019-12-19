@@ -59,7 +59,14 @@ body {
 .resume-container {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-areas: "lateral about-me" "lateral about-me" "lateral experience" "lateral education" "lateral skills" "lateral achievements" "lateral courses" "lateral contact";
+    grid-template-areas: "lateral about-me"
+                         "lateral about-me"
+                         "lateral experience"
+                         "lateral education"
+                         "lateral skills"
+                         "lateral achievements"
+                         "lateral courses"
+                         "lateral contact";
     grid-gap: 15px;
 }
 
@@ -206,6 +213,10 @@ body {
 
 .resume-container__education {
     grid-area: education;
+}
+
+.resume-container__skills {
+    grid-area: skills;
 }
 
 .resume-container__achievements {
@@ -360,7 +371,7 @@ body {
     }
     .skill-container__skill-item {
         font-size: 0.8em;
-        margin: 0 0.6em 0.3em 0;
+        margin: 0 0.5em 0.3em 0;
         width: 150px;
     }
     .progress-bar {
@@ -481,13 +492,14 @@ body {
         font-size: 0.8em;
         width: 100%;
     }
+
     .resume-container__skills ul {
-        columns: 1;
+        columns: 2;
     }
     .skill-container__skill-item {
-        font-size: 0.6em;
-        margin: 0 0.6em 0.3em 0;
-        width: 100px;
+        font-size: 0.7em;
+        margin: 0 0.6em 0.4em 0;
+        width: 180px;
     }
     .progress-bar {
         height: 12px;
@@ -516,9 +528,24 @@ body {
     .section-simple {
         font-size: 0.7em;
     }
+    .resume-container__skills ul {
+        columns: 1;
+    }
+    .skill-container__skill-item {
+        font-size: 0.7em;
+        margin: 0 0.6em 0.3em 0;
+        width: 200px;
+    }
+    .progress-bar {
+        height: 14px;
+        width: 200px;
+    }
+    .progress-bar__container {
+        height: 14px;
+    }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
     .header-title__fullname {
         font-size: 1.2em;
     }
@@ -543,5 +570,28 @@ body {
     }
     .info__date {
         font-size: 0.5rem;
+    }
+    .skill-container__skill-item {
+        font-size: 0.7em;
+        margin: 0 0.6em 0.3em 0;
+        width: 150px;
+    }
+    .progress-bar {
+        height: 14px;
+        width: 180px;
+    }
+    .progress-bar__container {
+        height: 14px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .progress-bar {
+        height: 12px;
+        width: 120px;
+    }
+    .progress-bar__container {
+        height: 12px;
     }
 }
