@@ -51,7 +51,7 @@ body {
 .resume {
     background-color: white;
     display: grid;
-    grid-template-columns: minmax(auto, 1000px);
+    grid-template-columns: minmax(auto, 1120px);
     justify-content: center;
     padding: 32px 15px;
 }
@@ -59,18 +59,21 @@ body {
 .resume-container {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-areas: "lateral about-me"
-                         "lateral about-me"
-                         "lateral experience"
-                         "lateral education"
-                         "lateral courses"
-                         "lateral contact";
+    grid-template-areas: "lateral about-me" "lateral about-me" "lateral experience" "lateral education" "lateral skills" "lateral achievements" "lateral courses" "lateral contact";
     grid-gap: 15px;
 }
 
 .section-container {
     padding: 20px 0;
     border-top: 1px solid #9b9b9b;
+}
+
+.section-simple {
+    max-width: 850px;
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
 .section-information {
@@ -91,7 +94,7 @@ body {
 .resume-container__lateral {
     background-color: #3978c0;
     grid-area: lateral;
-    min-height: 950px;
+    min-height: 800px;
     height: 100%;
     color: white;
 }
@@ -154,8 +157,7 @@ body {
 
 .header-image__wrapper {
     grid-column: 2 / span 1;
-    grid-row: 1 / span 2;
-    padding-left: 10px;
+    grid-row: 2 / span 1;
 }
 
 .header-image {
@@ -191,7 +193,7 @@ body {
 .header-title__description {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
-    max-width: 600px;
+    max-width: 620px;
     margin-top: 5px;
     font-weight: 300;
     font-size: 0.9em;
@@ -204,6 +206,10 @@ body {
 
 .resume-container__education {
     grid-area: education;
+}
+
+.resume-container__achievements {
+    grid-area: achievements;
 }
 
 .resume-container__courses {
@@ -267,7 +273,7 @@ body {
 
 .simple-list__item {
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .info__title {
@@ -316,7 +322,58 @@ body {
     text-decoration: none;
 }
 
-@media screen and (max-width: 1024px) {}
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.resume-container__skills ul {
+    columns: 3;
+}
+
+.skill-container__skill-item {
+    font-size: 0.8em;
+    width: 150px;
+    margin: 0 0.6em 0.1em 0;
+    list-style-type: none;
+}
+
+.progress-bar {
+    border-radius: 3px;
+    text-align: center;
+    font-size: 0.6em;
+    height: 15px;
+    width: 100px;
+    background-color: lightgrey;
+}
+
+.progress-bar__container {
+    border-radius: 3px;
+    height: 15px;
+    background-color: #5c92cf;
+}
+
+@media screen and (max-width: 1024px) {
+    .resume-container__skills ul {
+        columns: 2;
+    }
+    .skill-container__skill-item {
+        font-size: 0.8em;
+        margin: 0 0.6em 0.3em 0;
+        width: 150px;
+    }
+    .progress-bar {
+        height: 15px;
+        width: 150px;
+    }
+    .progress-bar__container {
+        height: 15px;
+    }
+    .social-link__item {
+        font-size: 2.2em;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .resume {
@@ -324,13 +381,7 @@ body {
     }
     .resume-container {
         grid-template-columns: 1fr;
-        grid-template-areas: "about-me"
-                             "about-me" 
-                             "experience"
-                             "education" 
-                             "courses"
-                             "lateral";
-                             
+        grid-template-areas: "about-me" "about-me" "experience" "education" "skills" "achievements" "courses" "lateral";
     }
     .resume-container__about-me {
         padding: 15px 10px 0 10px;
@@ -363,6 +414,10 @@ body {
     .list-item__info::after {
         right: calc(10px / 2);
     }
+    .simple-list__item {
+        font-weight: 300;
+        font-size: 0.7rem;
+    }
     .info__title {
         font-size: 1em;
     }
@@ -381,7 +436,7 @@ body {
         padding-left: 25px;
     }
     .resume-container__lateral {
-        min-height: 820px;
+        min-height: 480px;
         width: 100%;
     }
     .contact-information__container {
@@ -407,6 +462,14 @@ body {
         padding-left: 10px;
         padding-right: 10px;
     }
+    .resume-container__skills {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .resume-container__achievements {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .resume-container__courses {
         padding-left: 10px;
         padding-right: 10px;
@@ -414,8 +477,9 @@ body {
     .social_container {
         grid-template-columns: repeat(4, 1fr);
     }
-    .social-link__item {
-        font-size: 2.2em;
+    .section-simple {
+        font-size: 0.8em;
+        width: 100%;
     }
 }
 
@@ -433,6 +497,24 @@ body {
     }
     .header-image--rounded {
         height: 80px;
+    }
+    .section-simple {
+        font-size: 0.7em;
+    }
+    .resume-container__skills ul {
+        columns: 2;
+    }
+    .skill-container__skill-item {
+        font-size: 0.6em;
+        margin: 0 0.6em 0.3em 0;
+        width: 100px;
+    }
+    .progress-bar {
+        height: 12px;
+        width: 110px;
+    }
+    .progress-bar__container {
+        height: 12px;
     }
 }
 
@@ -461,5 +543,15 @@ body {
     }
     .info__date {
         font-size: 0.5rem;
+    }
+    .resume-container__skills ul {
+        columns: 1;
+    }
+    .progress-bar {
+        height: 12px;
+        width: 150px;
+    }
+    .progress-bar__container {
+        height: 12px;
     }
 }
