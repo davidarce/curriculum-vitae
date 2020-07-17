@@ -59,14 +59,7 @@ body {
 .resume-container {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-areas: "lateral about-me"
-                         "lateral about-me"
-                         "lateral experience"
-                         "lateral education"
-                         "lateral skills"
-                         "lateral achievements"
-                         "lateral courses"
-                         "lateral contact";
+    grid-template-areas: "lateral about-me" "lateral about-me" "lateral experience" "lateral education" "lateral skills" "lateral achievements" "lateral courses" "lateral contact";
     grid-gap: 15px;
 }
 
@@ -99,7 +92,7 @@ body {
 }
 
 .resume-container__lateral {
-    background-color: #3978c0;
+    background-color: #1f1f1f;
     grid-area: lateral;
     min-height: 800px;
     height: 100%;
@@ -113,7 +106,7 @@ body {
 }
 
 .resume-container__lateral .section-title {
-    border-bottom: 1px solid #5d90cb;
+    border-bottom: 1px solid #9b9b9b;
 }
 
 .contact-information__container {
@@ -163,8 +156,10 @@ body {
 }
 
 .header-image__wrapper {
+    display: flex;
+    align-items: center;
     grid-column: 2 / span 1;
-    grid-row: 2 / span 1;
+    grid-row: 2 / span 2;
 }
 
 .header-image {
@@ -172,19 +167,15 @@ body {
 }
 
 .header-image img {
-    width: 100px;
+    object-fit: cover;
+    width: 220px;
     height: auto;
 }
 
 .header-image--rounded {
     overflow: hidden;
     border-radius: 100%;
-    height: 100px;
-}
-
-.header-image--rounded img {
-    margin-top: -9px;
-    margin-left: -4px;
+    height: 150px;
 }
 
 .resume-container__about-me .section-container {
@@ -193,14 +184,14 @@ body {
 
 .header-title__fullname {
     font-size: 1.8em;
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 2;
     grid-row: 1 / span 1;
 }
 
 .header-title__description {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
-    max-width: 620px;
+    width: 85%;
     margin-top: 5px;
     font-weight: 300;
     font-size: 0.9em;
@@ -252,7 +243,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #3978c0;
+    background-color: #9b9b9b;
     border-radius: 50%;
 }
 
@@ -267,15 +258,13 @@ body {
     height: 100%;
     top: 0;
     right: calc(15px / 2);
-    background-color: #3978c0;
+    background-color: #9b9b9b;
 }
 
-.list-simple__container--outside {
-    list-style-position: outside;
-}
-
-.list-simple__container-outside .simple-list__item {
-    margin-left: 1em;
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
 }
 
 .list-simple__container--inside {
@@ -328,7 +317,7 @@ body {
 }
 
 .social-link__item {
-    font-size: 2.7em;
+    font-size: 1.8em;
     color: white;
     text-decoration: none;
 }
@@ -336,16 +325,13 @@ body {
 .skill-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-}
-
-.resume-container__skills ul {
-    columns: 3;
+    justify-content: center;
+    width: 100%;
 }
 
 .skill-container__skill-item {
     font-size: 0.8em;
-    width: 150px;
+    width: 50%;
     margin: 0 0.6em 0.1em 0;
     list-style-type: none;
 }
@@ -355,28 +341,25 @@ body {
     text-align: center;
     font-size: 0.6em;
     height: 15px;
-    width: 100px;
+    width: 200px;
     background-color: lightgrey;
 }
 
 .progress-bar__container {
     border-radius: 3px;
     height: 15px;
-    background-color: #5c92cf;
+    background-color: #9b9b9b;
 }
 
 @media screen and (max-width: 1024px) {
-    .resume-container__skills ul {
-        columns: 2;
-    }
     .skill-container__skill-item {
         font-size: 0.8em;
         margin: 0 0.5em 0.3em 0;
-        width: 150px;
+        width: 40%;
     }
     .progress-bar {
         height: 15px;
-        width: 150px;
+        width: 30%;
     }
     .progress-bar__container {
         height: 15px;
@@ -386,10 +369,7 @@ body {
     }
 }
 
-@media screen and (max-width: 767px) {
-    .resume {
-        padding: 0;
-    }
+@media screen and (max-width: 768px) {
     .resume-container {
         grid-template-columns: 1fr;
         grid-template-areas: "about-me" "about-me" "experience" "education" "skills" "achievements" "courses" "lateral";
@@ -406,11 +386,8 @@ body {
         margin-top: 0.2em;
         font-size: 0.8em;
     }
-    .header-image img {
-        width: 90px;
-    }
-    .header-image--rounded {
-        height: 90px;
+    .list-container {
+        grid-template-columns: 1fr
     }
     .list-item:not(:last-child):not(:nth-child(2)) {
         margin-bottom: 0.6em;
@@ -427,7 +404,7 @@ body {
     }
     .simple-list__item {
         font-weight: 300;
-        font-size: 0.7rem;
+        font-size: 0.8em;
     }
     .info__title {
         font-size: 1em;
@@ -436,14 +413,14 @@ body {
         font-size: 0.8rem;
     }
     .info__city {
-        font-size: 0.7rem;
+        font-size: 0.8em;
     }
     .info__date {
-        font-size: 0.7rem;
+        font-size: 0.8em;
     }
     .list-item__description {
         width: calc((100% / 12) * 9);
-        font-size: 0.7rem;
+        font-size: 0.8em;
         padding-left: 25px;
     }
     .resume-container__lateral {
@@ -457,7 +434,7 @@ body {
         font-size: 0.8em;
     }
     .contact-information__description {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
     .section-information {
         padding: 20px 10px 10px 10px;
@@ -493,20 +470,17 @@ body {
         width: 100%;
     }
 
-    .resume-container__skills ul {
-        columns: 2;
-    }
     .skill-container__skill-item {
-        font-size: 0.7em;
+        font-size: 0.8em;
         margin: 0 0.6em 0.4em 0;
-        width: 180px;
+        width: 50%;
     }
     .progress-bar {
-        height: 12px;
-        width: 150px;
+        height: 15px;
+        width: 40%;
     }
     .progress-bar__container {
-        height: 12px;
+        height: 15px;
     }
 }
 
@@ -520,25 +494,20 @@ body {
         font-size: 0.7em;
     }
     .header-image img {
-        width: 80px;
-    }
-    .header-image--rounded {
-        height: 80px;
+        object-position: 15px 40px;
+        width: 140px;
     }
     .section-simple {
         font-size: 0.7em;
     }
-    .resume-container__skills ul {
-        columns: 1;
-    }
     .skill-container__skill-item {
         font-size: 0.7em;
         margin: 0 0.6em 0.3em 0;
-        width: 200px;
+        width: 50%;
     }
     .progress-bar {
         height: 14px;
-        width: 200px;
+        width: 50%;
     }
     .progress-bar__container {
         height: 14px;
@@ -548,15 +517,6 @@ body {
 @media screen and (max-width: 375px) {
     .header-title__fullname {
         font-size: 1.2em;
-    }
-    .header-image img {
-        width: 68px;
-    }
-    .header-image--rounded {
-        height: 68px;
-    }
-    .header-image--rounded img {
-        margin-top: -7px;
     }
     .section-title {
         font-size: 0.9em;
@@ -585,7 +545,6 @@ body {
     }
 }
 
-
 @media screen and (max-width: 320px) {
     .progress-bar {
         height: 12px;
@@ -593,5 +552,8 @@ body {
     }
     .progress-bar__container {
         height: 12px;
+    }
+    .header-image img {
+        width: 120px;
     }
 }
