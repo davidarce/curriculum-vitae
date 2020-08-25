@@ -110,7 +110,6 @@ body {
 }
 
 .contact-information__container {
-    padding-top: 30px;
     display: flex;
     flex-direction: column;
 }
@@ -317,9 +316,17 @@ body {
 }
 
 .social-link__item {
-    font-size: 1.8em;
+    padding: 10px;
+    width: 75%;
+    height: 100%;
+    text-align: center;
+    font-size: 2.1em;
     color: white;
     text-decoration: none;
+}
+
+.social-link__item:hover {
+    color: #929292;
 }
 
 .skill-container {
@@ -365,7 +372,7 @@ body {
         height: 15px;
     }
     .social-link__item {
-        font-size: 2.2em;
+        font-size: 1.8em;
     }
 }
 
@@ -427,9 +434,6 @@ body {
         min-height: 480px;
         width: 100%;
     }
-    .contact-information__container {
-        padding-top: 5px;
-    }
     .resume-container__lateral .section-title {
         font-size: 0.8em;
     }
@@ -438,9 +442,6 @@ body {
     }
     .section-information {
         padding: 20px 10px 10px 10px;
-    }
-    .section-container {
-        padding: 10px 0;
     }
     .resume-container__experience {
         padding-left: 10px;
@@ -469,7 +470,6 @@ body {
         font-size: 0.8em;
         width: 100%;
     }
-
     .skill-container__skill-item {
         font-size: 0.8em;
         margin: 0 0.6em 0.4em 0;
@@ -481,6 +481,9 @@ body {
     }
     .progress-bar__container {
         height: 15px;
+    }
+    .social-link__item {
+        padding: 6px;
     }
 }
 
