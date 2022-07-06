@@ -188,7 +188,8 @@ body {
 }
 
 .header-title__role {
-    font-size: 1.4em;
+    font-size: 1.1em;
+    font-weight: 400;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
 }
@@ -395,7 +396,7 @@ body {
         font-size: 1.6em;
     }
     .header-title__role {
-        font-size: 1.4em;
+        font-size: 1em;
     }
     .header-title__description {
         width: 100%;
@@ -501,7 +502,7 @@ body {
         font-size: 1.5em;
     }
     .header-title__role {
-        font-size: 1.3em;
+        font-size: 1em;
     }
     .header-title__description {
         width: 100%;
