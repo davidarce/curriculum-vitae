@@ -388,6 +388,9 @@ body {
     .header-title__fullname {
         font-size: 1.6em;
     }
+    .header-title__role {
+        font-size: 1.4em;
+    }
     .header-title__description {
         width: 100%;
         margin-top: 0.2em;
@@ -491,6 +494,9 @@ body {
     .header-title__fullname {
         font-size: 1.5em;
     }
+    .header-title__role {
+        font-size: 1.3em;
+    }
     .header-title__description {
         width: 100%;
         margin-top: 0.2em;
@@ -520,6 +526,9 @@ body {
 @media screen and (max-width: 375px) {
     .header-title__fullname {
         font-size: 1.2em;
+    }
+    .header-title__role {
+        font-size: 1em;
     }
     .section-title {
         font-size: 0.9em;
