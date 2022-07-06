@@ -187,9 +187,15 @@ body {
     grid-row: 1 / span 1;
 }
 
+.header-title__role {
+    font-size: 1.4em;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+}
+
 .header-title__description {
     grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    grid-row: 3 / span 1;
     width: 85%;
     margin-top: 5px;
     font-weight: 300;
