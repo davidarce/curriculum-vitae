@@ -7,7 +7,8 @@
     font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: none;
@@ -48,6 +49,11 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 .resume {
     background-color: white;
     display: grid;
@@ -59,8 +65,18 @@ body {
 .resume-container {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-areas: "lateral about-me" "lateral about-me" "lateral experience" "lateral education" "lateral skills" "lateral achievements" "lateral courses" "lateral contact";
+    grid-template-areas:
+        "lateral about-me"
+        "lateral about-me"
+        "lateral skills"
+        "lateral experience"
+        "lateral education"
+        "lateral achievements"
+        "lateral courses"
+        "lateral contact";
     grid-gap: 15px;
+    min-height: 100vh;
+    /* Ensure full viewport height */
 }
 
 .section-container {
@@ -91,12 +107,77 @@ body {
     text-transform: uppercase;
 }
 
+.collapsible .section-title {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.section-title__icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s ease;
+}
+
+.section-title__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #1f1f1f;
+    display: block;
+}
+
+.collapsible.collapsed .section-title__icon {
+    transform: rotate(180deg);
+}
+
+.collapsible .section-title:focus {
+    outline: none;
+}
+
+.collapsible .section-title:focus-visible {
+    outline: 2px solid #1f1f1f;
+    outline-offset: 2px;
+}
+
+.collapsible .section-title {
+    border: none !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.collapsible .section-title:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .15) inset;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0));
+}
+
+.collapsible .section-title:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.collapsible .section-title:focus {
+    outline: 2px solid #1f1f1f;
+    outline-offset: 2px;
+}
+
+.collapsible.collapsed>*:not(.section-title) {
+    display: none;
+}
+
 .resume-container__lateral {
     background-color: #1f1f1f;
     grid-area: lateral;
-    min-height: 800px;
     height: 100%;
+    min-height: 100%;
     color: white;
+    align-self: stretch;
 }
 
 .resume-container__lateral .section-container {
@@ -146,6 +227,7 @@ body {
 .resume-container__about-me {
     grid-area: about-me;
     margin-bottom: 5px;
+    padding: 10px;
 }
 
 .header-title {
@@ -172,9 +254,13 @@ body {
 }
 
 .header-image--rounded {
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
     overflow: hidden;
-    border-radius: 100%;
-    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .resume-container__about-me .section-container {
@@ -336,6 +422,62 @@ body {
     color: #929292;
 }
 
+.skills-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 60px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.skills-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skills-group__title {
+    font-size: 0.85rem;
+    letter-spacing: .5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+    padding-left: 8px;
+    border-left: 4px solid #9b9b9b;
+}
+
+.skills-group__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skill-item {
+    display: grid;
+    grid-template-columns: minmax(140px, 260px) 200px;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.8rem;
+}
+
+.skill-item__name {
+    font-weight: 400;
+}
+
+.skill-item .progress-bar {
+    margin: 0;
+    width: 100%;
+    height: 12px;
+}
+
+.skill-item .progress-bar__container {
+    height: 12px;
+}
+
 .skill-container {
     display: flex;
     flex-direction: row;
@@ -366,18 +508,29 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+    .skills-groups {
+        gap: 24px 40px;
+    }
+
+    .skill-item {
+        grid-template-columns: minmax(130px, 240px) 160px;
+    }
+
     .skill-container__skill-item {
         font-size: 0.8em;
         margin: 0 0.5em 0.3em 0;
         width: 40%;
     }
+
     .progress-bar {
         height: 15px;
         width: 30%;
     }
+
     .progress-bar__container {
         height: 15px;
     }
+
     .social-link__item {
         font-size: 1.8em;
     }
@@ -386,145 +539,245 @@ body {
 @media screen and (max-width: 768px) {
     .resume-container {
         grid-template-columns: 1fr;
-        grid-template-areas: "about-me" "about-me" "experience" "education" "skills" "achievements" "courses" "lateral";
+        grid-template-areas:
+            "about-me" "about-me"
+            "skills" "skills"
+            "experience" "education"
+            "achievements" "achievements"
+            "courses" "lateral";
     }
+
     .resume-container__about-me {
         padding: 15px 10px 0 10px;
         margin-bottom: 0;
     }
+
     .header-title__fullname {
         font-size: 1.6em;
     }
+
     .header-title__role {
         font-size: 1em;
     }
+
     .header-title__description {
         width: 100%;
         margin-top: 0.2em;
         font-size: 0.8em;
     }
+
     .list-container {
         grid-template-columns: 1fr
     }
+
     .list-item:not(:last-child):not(:nth-child(2)) {
         margin-bottom: 0.6em;
     }
+
     .list-item:not(:nth-child(2)) {
         padding-top: 0.6em;
     }
+
     .list-item__info::before {
         width: 11px;
         height: 11px;
     }
+
     .list-item__info::after {
         right: calc(10px / 2);
     }
+
     .simple-list__item {
         font-weight: 300;
         font-size: 0.8em;
     }
+
     .info__title {
         font-size: 1em;
     }
+
     .info__extra {
         font-size: 0.8rem;
     }
+
     .info__city {
         font-size: 0.8em;
     }
+
     .info__date {
         font-size: 0.8em;
     }
+
     .list-item__description {
         width: calc((100% / 12) * 9);
         font-size: 0.8em;
         padding-left: 25px;
     }
+
     .resume-container__lateral {
-        min-height: 480px;
+        min-height: 100%;
         width: 100%;
     }
+
     .resume-container__lateral .section-title {
         font-size: 0.8em;
     }
+
     .contact-information__description {
         font-size: 0.8em;
     }
+
     .section-information {
         padding: 20px 10px 10px 10px;
     }
+
     .resume-container__experience {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .resume-container__education {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .resume-container__skills {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .resume-container__achievements {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .resume-container__courses {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .social_container {
         grid-template-columns: repeat(4, 1fr);
     }
+
     .section-simple {
         font-size: 0.8em;
         width: 100%;
     }
+
+    .skills-groups {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .skill-item {
+        grid-template-columns: 1fr 45%;
+    }
+
     .skill-container__skill-item {
         font-size: 0.8em;
         margin: 0 0.6em 0.4em 0;
         width: 50%;
     }
+
     .progress-bar {
         height: 15px;
         width: 40%;
     }
+
     .progress-bar__container {
         height: 15px;
     }
+
     .social-link__item {
         padding: 6px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .header-title {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "fullname picture"
+            "role picture"
+            "description description";
+        column-gap: 12px;
+        align-items: center;
+    }
+
+    .header-title__fullname {
+        grid-area: fullname;
+    }
+
+    .header-title__role {
+        grid-area: role;
+    }
+
+    .header-title__picture {
+        grid-area: picture;
+    }
+
+    .header-title__description {
+        grid-area: description;
+    }
+
+    .header-title__fullname,
+    .header-title__role,
+    .header-title__description {
+        text-align: left;
+    }
+
+    .header-image img {
+        width: 140px;
+    }
+
     .header-title__fullname {
         font-size: 1.5em;
     }
+
     .header-title__role {
         font-size: 1em;
     }
+
     .header-title__description {
         width: 100%;
         margin-top: 0.2em;
         font-size: 0.7em;
     }
+
     .header-image img {
-        object-position: 15px 40px;
-        width: 140px;
+        width: 100px;
     }
+
+    .header-image--rounded {
+        height: 100px;
+        width: 100px;
+    }
+
     .section-simple {
         font-size: 0.7em;
     }
+
+    .skills-group__title {
+        font-size: 0.75rem;
+    }
+
+    .skill-item {
+        font-size: 0.7rem;
+        gap: 8px;
+    }
+
     .skill-container__skill-item {
         font-size: 0.7em;
         margin: 0 0.6em 0.3em 0;
         width: 50%;
     }
+
     .progress-bar {
         height: 14px;
         width: 50%;
     }
+
     .progress-bar__container {
         height: 14px;
     }
@@ -534,45 +787,48 @@ body {
     .header-title__fullname {
         font-size: 1.2em;
     }
+
     .header-title__role {
         font-size: 1em;
     }
+
     .section-title {
         font-size: 0.9em;
         line-height: 15px;
     }
+
     .info__title {
         font-size: 0.9em;
     }
+
     .info__extra {
         font-size: 0.7rem;
     }
+
     .info__date {
         font-size: 0.5rem;
     }
+
+    .skill-item {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-item .progress-bar {
+        width: 100%;
+    }
+
     .skill-container__skill-item {
         font-size: 0.7em;
         margin: 0 0.6em 0.3em 0;
         width: 150px;
     }
+
     .progress-bar {
         height: 14px;
         width: 180px;
     }
+
     .progress-bar__container {
         height: 14px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .progress-bar {
-        height: 12px;
-        width: 120px;
-    }
-    .progress-bar__container {
-        height: 12px;
-    }
-    .header-image img {
-        width: 120px;
     }
 }
