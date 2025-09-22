@@ -11,7 +11,6 @@
 [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -247,20 +246,23 @@ body {
     width: 100%;
 }
 
-.header-image img {
-    object-fit: cover;
-    width: 220px;
-    height: auto;
-}
-
 .header-image--rounded {
     border-radius: 50%;
-    height: 220px;
-    width: 220px;
+    height: 300px;
+    width: 300px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+}
+
+.header-image img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 85%;
+    left: 0;
+    transform-origin: bottom;
+    transform: scale(2);
 }
 
 .resume-container__about-me .section-container {
@@ -727,10 +729,6 @@ body {
         text-align: left;
     }
 
-    .header-image img {
-        width: 140px;
-    }
-
     .header-title__fullname {
         font-size: 1.5em;
     }
@@ -746,7 +744,7 @@ body {
     }
 
     .header-image img {
-        width: 100px;
+        top: 90%;
     }
 
     .header-image--rounded {
