@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import CommandPalette from "../components/CommandPalette";
+import TerminalHero from "../components/TerminalHero.astro";
+import GitHistory from "../components/GitHistory.astro";
+import SystemStatus from "../components/SystemStatus.astro";
+import CertStore from "../components/CertStore.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="David Arce | Senior Backend Engineer">
+	<!-- Interactive Elements -->
+	<CommandPalette client:load />
+	<Sidebar />
+
+	<main class="relative">
+		<TerminalHero />
+		<GitHistory />
+		<SystemStatus />
+		<CertStore />
+	</main>
+
+	<div class="md:pl-16">
+		<Footer />
+	</div>
+</Layout>

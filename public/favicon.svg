@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00F3FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BD00FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100" height="100" fill="url(#bgGradient)" rx="20"/>
+  
+  <!-- Border glow -->
+  <rect x="2" y="2" width="96" height="96" fill="none" stroke="url(#textGradient)" stroke-width="1" rx="18" opacity="0.3"/>
+  
+  <!-- DA Text -->
+  <text 
+    x="50" 
+    y="68" 
+    font-family="'JetBrains Mono', monospace" 
+    font-size="48" 
+    font-weight="bold" 
+    fill="url(#textGradient)" 
+    text-anchor="middle"
+    filter="url(#glow)"
+  >DA</text>
+</svg>

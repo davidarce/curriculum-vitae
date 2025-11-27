@@ -1,0 +1,75 @@
+---
+import { skillsData } from "../data/skills";
+import { Cpu, Server, Database, Activity } from "lucide-react";
+
+const icons = {
+    Backend: Server,
+    "Software Architecture": Cpu,
+    "Cloud Infrastructure": Database,
+    "Soft Skills": Activity,
+};
+---
+
+<section id="skills" class="py-20 md:pl-16 bg-surface/50">
+    <div class="mx-auto max-w-5xl px-6">
+        <div class="mb-12 flex items-center gap-4">
+            <h2 class="text-3xl font-bold text-text font-mono">
+                <span class="text-success">./system-status.sh</span>
+            </h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+            {
+                skillsData.map((group) => {
+                    const Icon =
+                        icons[group.title as keyof typeof icons] || Activity;
+
+                    return (
+                        <div class="group overflow-hidden rounded-lg border-2 border-text-muted/20 bg-surface p-1 transition-all hover:border-success/50 hover:shadow-lg shadow-sm">
+                            <div class="h-full rounded border border-text-muted/10 bg-surface-hover p-5">
+                                <div class="mb-6 flex items-center justify-between border-b border-text-muted/20 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex h-8 w-8 items-center justify-center rounded bg-success/10 text-success border border-success/20">
+                                            <Icon className="h-5 w-5" />
+                                        </div>
+                                        <h3 class="font-mono font-bold text-text">
+                                            {group.title}
+                                        </h3>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-2 w-2 animate-pulse rounded-full bg-success" />
+                                        <span class="font-mono text-xs text-success">
+                                            ONLINE
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    {group.skills.map((skill) => (
+                                        <div>
+                                            <div class="mb-1 flex justify-between font-mono text-xs">
+                                                <span class="text-text-muted">
+                                                    {skill.name}
+                                                </span>
+                                                <span class="text-success">
+                                                    {skill.level}%
+                                                </span>
+                                            </div>
+                                            <div class="flex h-1.5 w-full overflow-hidden rounded-full bg-text-muted/20">
+                                                <div
+                                                    class="h-full bg-success shadow-[0_0_10px_var(--color-success)]"
+                                                    style={`width: ${skill.level}%`}
+                                                />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>

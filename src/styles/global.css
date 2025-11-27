@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default (System Core) */
+  --color-bg: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-hover: #111111;
+
+  --color-text: #e5e5e5;
+  --color-text-muted: #a3a3a3;
+
+  --color-primary: #00f3ff;
+  /* Neon Cyan */
+  --color-secondary: #bd00ff;
+  /* Neon Purple */
+  --color-success: #00ff9d;
+  /* Matrix Green */
+  --color-warning: #facc15;
+  /* Warning Yellow */
+  --color-error: #ff0055;
+  /* Error Red */
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-surface-hover: #f3f4f6;
+
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+
+  --color-primary: #2563eb;
+  /* Blue 600 */
+  --color-secondary: #7c3aed;
+  /* Violet 600 */
+  --color-success: #059669;
+  /* Emerald 600 */
+  --color-warning: #d97706;
+  /* Amber 600 */
+  --color-error: #dc2626;
+  /* Red 600 */
+}
+
+[data-theme="matrix"] {
+  --color-bg: #000000;
+  --color-surface: #001100;
+  --color-surface-hover: #002200;
+
+  --color-text: #00ff00;
+  --color-text-muted: #008f00;
+
+  --color-primary: #00ff00;
+  --color-secondary: #00cc00;
+  --color-success: #00ff00;
+  --color-warning: #ccff00;
+  --color-error: #ff0000;
+}
+
+[data-theme="ocean"] {
+  --color-bg: #0a1628;
+  --color-surface: #0f1e33;
+  --color-surface-hover: #152840;
+
+  --color-text: #e0f2fe;
+  --color-text-muted: #7dd3fc;
+
+  --color-primary: #38bdf8;
+  /* Sky 400 */
+  --color-secondary: #818cf8;
+  /* Indigo 400 */
+  --color-success: #34d399;
+  /* Emerald 400 */
+  --color-warning: #fbbf24;
+  /* Amber 400 */
+  --color-error: #f87171;
+  /* Red 400 */
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Animations */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+/* Utility classes */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px var(--color-primary);
+}
+
+.border-glow {
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.crt-overlay {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Hide CRT on light mode */
+[data-theme="light"] .crt-overlay {
+  display: none;
+}

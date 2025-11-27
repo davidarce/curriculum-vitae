@@ -1,0 +1,148 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Senior Software Engineer Portfolio" } =
+	Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>{title}</title>
+		<ClientRouter />
+	</head>
+	<body
+		class="bg-bg text-text selection:bg-primary selection:text-black font-sans antialiased relative overflow-x-hidden"
+	>
+		<!-- Sophisticated Animated Background -->
+		<div class="fixed inset-0 z-0">
+			<!-- Base gradient -->
+			<div
+				class="absolute inset-0 bg-gradient-to-br from-bg via-bg to-surface"
+			>
+			</div>
+
+			<!-- Animated gradient orbs -->
+			<div
+				class="absolute top-0 -left-40 w-80 h-80 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"
+			>
+			</div>
+			<div
+				class="absolute top-0 -right-40 w-80 h-80 bg-secondary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"
+			>
+			</div>
+			<div
+				class="absolute -bottom-40 left-20 w-80 h-80 bg-success/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"
+			>
+			</div>
+
+			<!-- Subtle dot pattern -->
+			<div
+				class="absolute inset-0 opacity-[0.03]"
+				style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 32px 32px;"
+			>
+			</div>
+
+			<!-- Noise texture for depth -->
+			<div class="absolute inset-0 opacity-[0.015] bg-noise"></div>
+		</div>
+
+		<!-- CRT Overlay (only on dark themes) -->
+		<div
+			class="fixed inset-0 z-[100] pointer-events-none crt-overlay opacity-20"
+		>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10">
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style>
+	/* Blob animation for floating orbs */
+	@keyframes blob {
+		0%,
+		100% {
+			transform: translate(0px, 0px) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+	}
+
+	.animate-blob {
+		animation: blob 20s infinite;
+	}
+
+	.animation-delay-2000 {
+		animation-delay: 2s;
+	}
+
+	.animation-delay-4000 {
+		animation-delay: 4s;
+	}
+
+	/* Noise texture */
+	.bg-noise {
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	}
+
+	/* Theme-specific adjustments */
+	[data-theme="light"] .animate-blob {
+		opacity: 0.4;
+		filter: blur(60px);
+	}
+
+	[data-theme="light"] .bg-noise {
+		opacity: 0.02;
+	}
+
+	[data-theme="matrix"] .animate-blob:nth-child(2) {
+		background: rgba(0, 255, 0, 0.08);
+	}
+
+	[data-theme="matrix"] .animate-blob:nth-child(3) {
+		background: rgba(0, 204, 0, 0.08);
+	}
+
+	[data-theme="matrix"] .animate-blob:nth-child(4) {
+		background: rgba(0, 255, 0, 0.06);
+	}
+
+	[data-theme="ocean"] .animate-blob:nth-child(2) {
+		background: rgba(56, 189, 248, 0.12);
+	}
+
+	[data-theme="ocean"] .animate-blob:nth-child(3) {
+		background: rgba(129, 140, 248, 0.12);
+	}
+
+	[data-theme="ocean"] .animate-blob:nth-child(4) {
+		background: rgba(52, 211, 153, 0.1);
+	}
+</style>
